@@ -1,4 +1,5 @@
 import ProfileCard from "./ProfileCard";
+import img from "../images/andryHakim.png"
 
 export const AboutSection = () => {
   return (
@@ -15,15 +16,11 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground ">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
-              nobis aliquid ut. Labore praesentium at esse nobis enim nam culpa!
-              Laboriosam mollitia cupiditate soluta similique.
+              Saya Adalah Junior Front-end Developer Yang Sebentar Lagi Akan Lulus Dari Jenjang SMK Dan Akan Langsung Bekerja
             </p>
 
             <p className="text-muted-foreground">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Architecto sequi accusantium cumque magnam. Quia explicabo hic,
-              enim iure modi natus!
+              Kenapa Pilih Saya Karena Saya Sangat Tertarik Dengan Teknologi, Saya Sering Melakukan Prompt Untuk Mengetahui Sesuatu Mau itu Code Atau Pun Pengetahuan, Dengan ini Saya Sangat Yakin Dengan Kebolehan Saya Untuk Membuat Sebuah Mega Project Disebuah Perusahaan Atau Pun UMKM, Atau Berkontribusi Ataupun Kolaborasi Dengan Siapapun
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -47,14 +44,15 @@ export const AboutSection = () => {
                 handle="Arya"
                 status="Write A Code"
                 contactText="Contact Me"
-                avatarUrl="/path/to/avatar.jpg"
+                avatarUrl={img}
                 grainUrl="https://i.pinimg.com/474x/ef/b1/57/efb157823fb1249f8381a2a0b608e95b.jpg"
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}
                 onContactClick={() => console.log("Contact clicked")}
                 className="cursor-target"
-              />
+              /> 
+              
             </div>
           </div>
         </div>
