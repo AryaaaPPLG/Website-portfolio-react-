@@ -82,7 +82,7 @@ export const StarBackground = () => {
                     style={{
                         position: "absolute",
                         width: meteor.size * 50 + "px", // panjang garis meteor
-                        height: meteor.size * 2 + "px",
+                        height: meteor.size * 3 + "px",
                         left: meteor.x + "%",
                         top: meteor.y + "%",
                         background: "linear-gradient(90deg, white, transparent)",
