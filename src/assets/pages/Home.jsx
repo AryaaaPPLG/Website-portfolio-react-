@@ -7,6 +7,7 @@ import { AboutSection } from "../components/AboutSection";
 import { SkillsSelection } from "../components/SkillsSection";
 import ClickSpark from "../components/ClickSpark";
 import { ProjectSection } from "../components/ProjectSection";
+import CertificateList from "../components/CertificateList";
 
 
 export const Home = () => {
@@ -35,6 +36,7 @@ export const Home = () => {
     <AboutSection />
     <SkillsSelection />
     <ProjectSection />
+    <CertificateList />
     </ClickSpark>
 </main>
 

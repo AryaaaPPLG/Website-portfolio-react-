@@ -8,19 +8,19 @@ const projects = [
         id: 1,
         title: "Website MLS - SMKS Muhammadiyah 1 Genteng",
         description: "Sebuah website sederhana dan fungsional menggunakan html dan tailwindcss",
-        image: "/projects/project1.png",
+        image: "/projects/project2.png",
         tags: ["Html", "TailwindCSS", "WebsiteMLS"],
-        demoUrl: "#",
-        githubUrl: "#",
+        demoUrl: "https://aryaaarpl.github.io/Website-MLS-SMEMSA/",
+        githubUrl: "https://github.com/AryaaaRpl/Website-MLS-SMEMSA",
     },
     {
         id: 2,
         title: "Website Jasa Penyewaan Mobil",
         description: "Sebuah website dinamis dan fungsional menggunakan html dan bootstrap",
-        image: "/projects/project2.png",
+        image: "/projects/project1.png",
         tags: ["Html", "Bootstrap", "sewa-mobil"],
-        demoUrl: "#",
-        githubUrl: "#",
+        demoUrl: "https://aryaaarpl.github.io/UKK-Hummatech/",
+        githubUrl: "https://github.com/AryaaaRpl/UKK-Hummatech",
     },
 
 ]
@@ -29,7 +29,7 @@ export const ProjectSection = () => {
     return (
         <section id="projects" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center ">Project <span className="text-primary"> Saya</span></h2>
+                <h2 className="text-5xl font-extrabold text-center text-foreground mb-4 tracking-tight ">Project <span className="text-primary"> Saya</span></h2>
 
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
                     Berikut adalah project project saya, project ini dibuat untuk sebatas latihan untuk meningkatkan pemahaman di setiap library ataupun bahasa pemrograman.
@@ -83,7 +83,7 @@ export const ProjectSection = () => {
                 </div>
 
                 <div className="text-center mt-12">
-                    <a href="https://github.com/aryaaarpl" target="_blank" className="cosmic-button w-fit flex items-center bg-foreground text-white cursor-target mx-auto gap-2">
+                    <a href="https://github.com/aryaaarpl" target="_blank" className="cosmic-button hover:bg-white hover:text-foreground w-fit flex items-center bg-foreground text-white cursor-target mx-auto gap-2">
                         Akun GitHub Saya <ArrowRight size={16}/>
                     </a>
                 </div>
