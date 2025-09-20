@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'Moderniz';
+  src: url('./assets/fonts/Moderniz.otf') format('truetype');
+}
 @theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -318,3 +322,5 @@
     @apply bg-background text-foreground;
   }
 }
+
+

@@ -1,9 +1,7 @@
 import ProfileCard from "./ProfileCard";
 import img from "../images/aryaa.png"
-import Lanyard from "./Lanyard";
 import { Download } from "lucide-react";
-import OrbitingCircles from "./ui/OrbitingCircles"
-import { FaReact, FaHtml5, FaLaravel } from "react-icons/fa";
+
 
 export const AboutSection = () => {
   return (
@@ -32,7 +30,7 @@ export const AboutSection = () => {
                 Hubungi Saya
               </a>
               <a
-                href=""
+                href="../CV/CV_GenZ_Freelance.docx" download="CV_GenZ_Freelance.docx"
                 className="px-8 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300 cursor-target flex gap-2 items-center hover:bg-sky-150  hover:shadow-xs hover:shadow-sky-600 justify-center"
               >
                 Download CV <Download size={16}/>
@@ -57,7 +55,6 @@ export const AboutSection = () => {
                 onContactClick={() => window.location.href="https://wa.me/+62895368757054"}
                 className="cursor-target"
               /> 
-             {/* <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} /> */}
               
             </div>
           </div>

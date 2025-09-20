@@ -1,4 +1,4 @@
-import { Navbar } from "../components/Navbar";
+import Navbar from "../components/Navbar"
 import { StarBackground } from "../components/StarBackground";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { HeroSection } from "../components/HeroSection";
@@ -8,17 +8,19 @@ import { SkillsSelection } from "../components/SkillsSection";
 import ClickSpark from "../components/ClickSpark";
 import { ProjectSection } from "../components/ProjectSection";
 import CertificateList from "../components/CertificateList";
+import NavbarPolygon from "../components/NavbarPolygon";
 
 
 export const Home = () => {
     return <div className="min-h-screen bg-background text-foreground">
 {/* Theme Toggle */}
-
+<Navbar />
 <ThemeToggle />
 {/* Background Effects */}
 <StarBackground />
 {/* Navbar */}
-<Navbar />
+
+{/* <NavbarPolygon/> */}
 {/* Main Content */}
 <main className="flex flex-col items-center justify-center min-h-screen relative">
    <TargetCursor 

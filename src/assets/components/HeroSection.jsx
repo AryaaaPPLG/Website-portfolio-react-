@@ -30,7 +30,7 @@ export const HeroSection = () => {
             <h1 className="text-4xl md:text-6xl font-bolt tracking-tight text-sky-50/80">
             <span className="opacity-0 animate-fade-in text-5xl font-extrabold text-center mb-4 tracking-tight">Hai, Saya </span>
             
-            <AuroraText speed={5} colors={["#4300FF", "#0065F8", "#00CAFF", "#00FFDE"]} className="text-5xl font-extrabold text-center mb-4  text-primary opacity-1 animate-fade-in cursor-target">Arya</AuroraText> 
+            <AuroraText speed={5} colors={["#4300FF", "#0065F8", "#00CAFF", "#00FFDE"]} className="text-5xl font-extrabold text-center mb-4  text-primary opacity-1 animate-fade-in cursor-target font-moderniz  drop-shadow-xl drop-shadow-sky-600 ">Arya</AuroraText> 
             <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2 text-5xl font-extrabold text-center mb-4 tracking-tight">Prana Jaya</span>
           </h1>
           </SparklesText>
@@ -48,12 +48,12 @@ export const HeroSection = () => {
               Lihat Projek Saya
             </a>
 
-            <button
+            {/* <button
               onClick={() => setShowLanyard(!showLanyard)}
               className="cosmic-button cursor-target bg-purple-600 text-white hover:text-purple-600 hover:bg-white"
             >
               {showLanyard ? "✖" : "📇"}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
