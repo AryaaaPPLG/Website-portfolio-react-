@@ -2,6 +2,8 @@ import ProfileCard from "./ProfileCard";
 import img from "../images/aryaa.png"
 import Lanyard from "./Lanyard";
 import { Download } from "lucide-react";
+import OrbitingCircles from "./ui/OrbitingCircles"
+import { FaReact, FaHtml5, FaLaravel } from "react-icons/fa";
 
 export const AboutSection = () => {
   return (
@@ -31,7 +33,7 @@ export const AboutSection = () => {
               </a>
               <a
                 href=""
-                className="px-8 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300 cursor-target flex gap-2 items-center hover:bg-sky-150  hover:shadow-xs hover:shadow-sky-600"
+                className="px-8 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300 cursor-target flex gap-2 items-center hover:bg-sky-150  hover:shadow-xs hover:shadow-sky-600 justify-center"
               >
                 Download CV <Download size={16}/>
               </a>
@@ -39,22 +41,23 @@ export const AboutSection = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border border-sky-600 shadow-xs shadow-sky-600 backdrop-blur-xs  p-2 pb-0  duration-500 ease-in-out card-hover ">
-              {/* <ProfileCard
+            <div className="flex  p-2 pb-0  duration-500 ease-in-out card-hover mx-6 sm:mx-0">
+             
+              <ProfileCard
                 name="Arya Prana Jaya"
                 title="Software Engineer"
                 handle="Arya"
                 status="Write A Code"
                 contactText="Contact Me"
                 avatarUrl={img}
-                grainUrl="https://i.pinimg.com/474x/ef/b1/57/efb157823fb1249f8381a2a0b608e95b.jpg"
+                grainUrl="https://i.pinimg.com/736x/9b/f3/fa/9bf3fac7c574c0425c738484484eb9dd.jpg"
                 showUserInfo={true}
                 enableTilt={true}
-                enableMobileTilt={false}
-                onContactClick={() => console.log("Contact clicked")}
+                enableMobileTilt={true}
+                onContactClick={() => window.location.href="https://wa.me/+62895368757054"}
                 className="cursor-target"
-              />  */}
-             <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+              /> 
+             {/* <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} /> */}
               
             </div>
           </div>

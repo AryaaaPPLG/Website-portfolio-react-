@@ -1,58 +1,47 @@
 import { useState } from "react"
 import { cn } from "../../lib/utils"
+
 import { 
-  Code2, 
-  FileCode, 
-  Github, 
-  Boxes, 
-  Braces, 
-  Palette, 
-  Hammer, 
-  Monitor, 
-  Terminal 
-} from "lucide-react"
+  FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaBootstrap, FaPhp, FaLaravel, FaGithub 
+} from "react-icons/fa"
+import { SiTailwindcss } from "react-icons/si"
 
 const skills = [
-  // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend", Icon: Palette },
-  { name: "Javascript", level: 76, category: "frontend", Icon: Code2 },
-  { name: "Tailwind CSS", level: 95, category: "frontend", Icon: Boxes },
-  { name: "React", level: 87, category: "frontend", Icon: Monitor },
-  { name: "Bootstrap", level: 90, category: "frontend", Icon: Hammer },
-
-  // Backend
-  { name: "Laravel", level: 65, category: "backend", Icon: Braces },
-  { name: "PHP", level: 65, category: "backend", Icon: FileCode },
-
-  // Tools
-  { name: "Github", level: 87, category: "tools", Icon: Github },
-  { name: "Vs Code", level: 90, category: "tools", Icon: Terminal },
+  { name: "HTML", level: 95, category: "frontend", Icon: FaHtml5 },
+  { name: "CSS", level: 95, category: "frontend", Icon: FaCss3Alt },
+  { name: "Javascript", level: 76, category: "frontend", Icon: FaJsSquare },
+  { name: "Tailwind CSS", level: 95, category: "frontend", Icon: SiTailwindcss },
+  { name: "React", level: 87, category: "frontend", Icon: FaReact },
+  { name: "Bootstrap", level: 90, category: "frontend", Icon: FaBootstrap },
+  { name: "Laravel", level: 65, category: "backend", Icon: FaLaravel },
+  { name: "PHP", level: 65, category: "backend", Icon: FaPhp },
+  { name: "Github", level: 87, category: "tools", Icon: FaGithub },
 ]
 
 const categories = ["all", "frontend", "backend", "tools"]
 
 export const SkillsSelection = () => {
-  const [activeCagetory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("all")
 
   const filteredSkills = skills.filter(
-    (skill) => activeCagetory === "all" || skill.category === activeCagetory
-  );
-
+    (skill) => activeCategory === "all" || skill.category === activeCategory
+  )
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+      <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           Skills <span className="text-primary"> Saya </span>
         </h2>
 
+        {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category, key) => (
             <button
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize cursor-target",
-                activeCagetory === category
+                "px-5 py-2 rounded-full transition-colors duration-300 capitalize cursor-pointer",
+                activeCategory === category
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}
@@ -62,26 +51,26 @@ export const SkillsSelection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover cursor-target"
+              className="relative group [perspective:1000px] cursor-pointer"
             >
-              <div className="flex items-center gap-2 mb-4">
-                {skill.Icon && <skill.Icon className="w-6 h-6 text-primary" />}
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-foreground h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
+              <div className="relative w-full h-44 transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {/* Front Side */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-500 text-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6 [backface-visibility:hidden]">
+                  <skill.Icon className="w-12 h-12 mb-3" />
+                  <h3 className="font-bold text-lg">{skill.name}</h3>
+                  <span className="text-sm">{skill.level}%</span>
+                </div>
+
+                {/* Back Side */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-400 text-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <p className="text-sm mb-2">Skill Level</p>
+                  <span className="text-2xl font-bold">{skill.level}%</span>
+                </div>
               </div>
             </div>
           ))}

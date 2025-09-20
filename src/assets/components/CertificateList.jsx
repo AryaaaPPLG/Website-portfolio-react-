@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Download, X } from "lucide-react"; // icon modern
+import { Download, X } from "lucide-react";
+import { Document, Page, pdfjs } from "react-pdf";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
+
+// Load worker
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const certificates = [
   {
@@ -7,7 +13,8 @@ const certificates = [
     title: "TANTANGAN DAN SOLUSI LOCAL BRAND UNTUK BERSAING DI PASAR DIGITAL",
     issuer: "Kominfo, Siber Kreasi",
     date: "November 2021",
-    file: "/certificate/ANAK AGUNG PUTU ARYA PRANA JAYA.pdf",
+    file: "./certificate/ANAK AGUNG PUTU ARYA PRANA JAYA.pdf",
+    preview: "./images/cert1.png", // tambahin gambar preview
   },
   {
     id: 2,
@@ -15,6 +22,7 @@ const certificates = [
     issuer: "RevoU",
     date: "Maret 2024",
     file: "/certificate/arya-prana-jaya-certificate-attendance-sefc.pdf",
+    preview: "/images/cert2.png",
   },
   {
     id: 3,
@@ -22,21 +30,16 @@ const certificates = [
     issuer: "CyberAcademy",
     date: "Agustus 2025",
     file: "/certificate/cyberacademy.pdf",
+    preview: "/images/cert3.png",
   },
-   {
+  {
     id: 4,
-    title: "Cyber Cast",
-    issuer: "CyberAcademy",
-    date: "Agustus 2025",
-    file: "/certificate/Certificate-of-Completion-Introduction-to-Information-Security.pdf",
-  },
-     {
-    id: 5,
-    title: "Lulus Dari Kelas Industri Hummatech Sebagai Front-end Dev",
+    title: "Lulus Dari Front-End Menggunakan Bootstrap",
     issuer: "PT Hummatech",
-    date: "Juli 2025",
+    date: "Agustus 2025",
     file: "/certificate/sertifikat-hummatech.pdf",
-  }
+    preview: "/images/cert4.png",
+  },
 ];
 
 export default function CertificateList() {
@@ -45,12 +48,11 @@ export default function CertificateList() {
   return (
     <section id="certificate" className="min-h-screen py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <h1 className="text-5xl font-extrabold text-center text-foreground mb-4 tracking-tight">
           🎓 Sertifikat<span className="text-primary"> Saya</span>
         </h1>
         <p className="text-center text-muted-foreground mb-16 text-lg">
-         Berikut Adalah Beberapa Sertifikat Saya Yang Saya Kembangkan Mulai Dari Tahun Ke Tahun
+          Berikut Adalah Beberapa Sertifikat Saya Yang Saya Kembangkan Mulai Dari Tahun Ke Tahun
         </p>
 
         {/* Grid List */}
@@ -58,23 +60,22 @@ export default function CertificateList() {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="backdrop-blur-xs blur-sm hover:blur-none  rounded-2xl shadow-xl border border-gray-200 p-6 flex flex-col justify-between hover:shadow-2xl hover:border-blue-400 transition transform hover:-translate-y-2 cursor-target"
+              className="rounded-2xl shadow-xl border border-gray-200 hover:shadow-2xl hover:border-blue-400 transition transform hover:-translate-y-2 cursor-pointer overflow-hidden shadow-lg shadow-sky-600 drop-shadow-md drop-shadow-sky-600"
+              onClick={() => setSelectedPDF(cert.file)}
             >
-              <div>
-                <h2 className="text-xl font-semibold text-foreground mb-1">
+              {/* Gambar preview */}
+              <img
+                src={cert.preview}
+                alt={cert.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h2 className="text-xl font-semibold text-white mb-1">
                   {cert.title}
                 </h2>
                 <p className="text-gray-600">{cert.issuer}</p>
                 <p className="text-sm text-gray-500 mt-2">{cert.date}</p>
               </div>
-
-              {/* Button */}
-              <button
-                onClick={() => setSelectedPDF(cert.file)}
-                className="mt-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-lg shadow hover:from-blue-700 hover:to-purple-700 transition"
-              >
-                View PDF
-              </button>
             </div>
           ))}
         </div>
@@ -84,7 +85,7 @@ export default function CertificateList() {
       {selectedPDF && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 animate-fadeIn">
           <div className="bg-white rounded-2xl shadow-2xl max-w-5xl w-full relative overflow-hidden">
-            {/* Header Modal */}
+            {/* Header */}
             <div className="flex justify-between items-center bg-gradient-to-r from-blue-600 to-purple-600 p-4">
               <h2 className="text-white font-semibold">Certificate Preview</h2>
               <button
@@ -95,14 +96,14 @@ export default function CertificateList() {
               </button>
             </div>
 
-            {/* PDF Preview */}
-            <iframe
-              src={selectedPDF}
-              title="Certificate PDF"
-              className="w-full h-[75vh]"
-            ></iframe>
+            {/* PDF Viewer pakai react-pdf */}
+            <div className="w-full h-[75vh] overflow-auto flex justify-center bg-gray-100">
+              <Document file={selectedPDF}>
+                <Page pageNumber={1} width={800} />
+              </Document>
+            </div>
 
-            {/* Footer Modal */}
+            {/* Footer */}
             <div className="flex justify-end gap-4 p-4 border-t bg-gray-50">
               <a
                 href={selectedPDF}
