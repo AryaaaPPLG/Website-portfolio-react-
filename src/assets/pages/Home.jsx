@@ -19,7 +19,6 @@ export const Home = () => {
 <StarBackground />
 {/* Navbar */}
 
-{/* <NavbarPolygon/> */}
 {/* Main Content */}
 <main className="flex flex-col items-center justify-center min-h-screen relative">
    <TargetCursor 
