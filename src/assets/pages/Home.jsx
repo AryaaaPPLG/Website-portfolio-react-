@@ -8,7 +8,6 @@ import { SkillsSelection } from "../components/SkillsSection";
 import ClickSpark from "../components/ClickSpark";
 import { ProjectSection } from "../components/ProjectSection";
 import CertificateList from "../components/CertificateList";
-import NavbarPolygon from "../components/NavbarPolygon";
 
 
 export const Home = () => {
