@@ -8,6 +8,7 @@ import { SkillsSelection } from "../components/SkillsSection";
 import ClickSpark from "../components/ClickSpark";
 import { ProjectSection } from "../components/ProjectSection";
 import CertificateList from "../components/CertificateList";
+import Squares from "../components/Squares";
 
 
 export const Home = () => {
@@ -16,11 +17,19 @@ export const Home = () => {
 <Navbar />
 <ThemeToggle />
 {/* Background Effects */}
-<StarBackground />
+{/* <StarBackground /> */}
+
 {/* Navbar */}
 
 {/* Main Content */}
 <main className="flex flex-col items-center justify-center min-h-screen relative">
+    <div className="fixed top-0 bottom-0 right-0 left-0 w-full h-full ">
+<Squares
+direction="down"
+borderColor="#00f7ffff"
+squareSize={60}
+hoverFillColor="#5b5b5bff"/>
+</div>
    <TargetCursor 
     pinDuration={2}
         hideDefaultCursor={true}

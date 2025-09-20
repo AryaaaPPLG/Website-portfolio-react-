@@ -23,7 +23,7 @@ const Navbar = () => {
     <li>
       <a
         href={href}
-        className="relative block font-bold text-base tracking-wide py-2 text-white transition duration-300 hover:text-cyan-300 hover:drop-shadow-[0_0_6px_#00fff7] group"
+        className="relative block font-bold text-base tracking-wide py-2 text-white transition duration-300 hover:text-cyan-300 hover:drop-shadow-[0_0_6px_#00fff7] group cursor-target"
       >
         {children}
         <span className="absolute bottom-1 left-0 block h-[2px] w-0 bg-cyan-400 transition-all duration-500 group-hover:w-full"></span>
@@ -68,7 +68,7 @@ const Navbar = () => {
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           {/* left */}
           <ul className="hidden md:flex items-center gap-4 pointer-events-auto">
-            <NavLink href="#">Home</NavLink>
+            <NavLink  href="#">Home</NavLink>
             <NavLink href="#about">About</NavLink>
             <NavLink href="#certificate">Certificate</NavLink>
           </ul>
@@ -124,7 +124,7 @@ const Navbar = () => {
               className="md:hidden px-6 pb-4 pointer-events-auto"
             >
               <ul className="flex flex-col gap-4 text-center text-white">
-                <NavLink href="#home">Home</NavLink>
+                <NavLink  href="#home">Home</NavLink>
                 <NavLink href="#about">About</NavLink>
                 <NavLink href="#projects">Project</NavLink>
                 <NavLink href="#certificate">certificate</NavLink>
