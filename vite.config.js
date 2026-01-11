@@ -11,6 +11,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     }
   },
+  optimizeDeps: {
+    include: ['react-icons', 'react-icons/si', 'react-icons/fa']
+  },
+  ssr: {
+    noExternal: ['react-icons']
+  },
+  build: {
+    commonjsOptions: {
+      include: [/node_modules\/react-icons/, /node_modules/]
+    }
+  },
   assetsInclude: ['**/*.wasm', '**/*.docx'],
   
 })

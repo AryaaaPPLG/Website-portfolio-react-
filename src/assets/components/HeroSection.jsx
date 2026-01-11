@@ -1,8 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ArrowDown } from "lucide-react"
 import OrbitingCircles from "./ui/OrbitingCircles"
-import { FaReact, FaHtml5, FaLaravel, FaGithub, FaPhp } from "react-icons/fa"
-import { SiTailwindcss, SiTypescript,  } from "react-icons/si"
+import { FaReact, FaHtml5, FaLaravel, FaGithub, FaPhp, FaCss3Alt, FaJsSquare } from "react-icons/fa"
 import AuroraText from "./ui/AuroraText"
 import Lanyard from "./Lanyard"
 import "@dimforge/rapier3d-compat";
@@ -10,6 +9,15 @@ import SparklesText from "./ui/SparklesText"
 
 
 export const HeroSection = () => {
+  const [siIcons, setSiIcons] = useState({})
+
+  useEffect(() => {
+    import('react-icons/si')
+      .then((mod) => {
+        setSiIcons({ SiTailwindcss: mod.SiTailwindcss, SiTypescript: mod.SiTypescript })
+      })
+      .catch(() => {})
+  }, [])
 
   return (
     <section
@@ -26,10 +34,18 @@ export const HeroSection = () => {
     >
       <FaReact className="w-20 h-20"/>
       <FaHtml5 className="w-20 h-20"/>
-      <SiTailwindcss className="w-20 h-20"/>
+      {siIcons.SiTailwindcss ? (
+        <siIcons.SiTailwindcss className="w-20 h-20" />
+      ) : (
+        <FaCss3Alt className="w-20 h-20" />
+      )}
       <FaLaravel className="w-20 h-20"/>
       <FaGithub className="w-20 h-20"/>
-      <SiTypescript className="w-20 h-20"/>
+      {siIcons.SiTypescript ? (
+        <siIcons.SiTypescript className="w-20 h-20" />
+      ) : (
+        <FaJsSquare className="w-20 h-20" />
+      )}
       <FaPhp className="w-20 h-20"/>
     </OrbitingCircles>
   </div>

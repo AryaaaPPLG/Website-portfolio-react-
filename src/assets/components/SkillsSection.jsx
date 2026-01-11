@@ -1,16 +1,16 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cn } from "../../lib/utils"
 
 import { 
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaBootstrap, FaPhp, FaLaravel, FaGithub 
 } from "react-icons/fa"
-import { SiTailwindcss } from "react-icons/si"
 
 const skills = [
   { name: "HTML", level: 95, category: "frontend", Icon: FaHtml5 },
   { name: "CSS", level: 95, category: "frontend", Icon: FaCss3Alt },
   { name: "Javascript", level: 76, category: "frontend", Icon: FaJsSquare },
-  { name: "Tailwind CSS", level: 95, category: "frontend", Icon: SiTailwindcss },
+  // Use a fallback (FaCss3Alt) until the Si icon is dynamically loaded
+  { name: "Tailwind CSS", level: 95, category: "frontend", Icon: FaCss3Alt },
   { name: "React", level: 87, category: "frontend", Icon: FaReact },
   { name: "Bootstrap", level: 90, category: "frontend", Icon: FaBootstrap },
   { name: "Laravel", level: 65, category: "backend", Icon: FaLaravel },
@@ -18,12 +18,26 @@ const skills = [
   { name: "Github", level: 87, category: "tools", Icon: FaGithub },
 ]
 
+
 const categories = ["all", "frontend", "backend", "tools"]
 
 export const SkillsSelection = () => {
   const [activeCategory, setActiveCategory] = useState("all")
+  const [skillsState, setSkillsState] = useState(skills)
 
-  const filteredSkills = skills.filter(
+  useEffect(() => {
+    import('react-icons/si')
+      .then((mod) => {
+        setSkillsState((prev) =>
+          prev.map((s) =>
+            s.name === 'Tailwind CSS' ? { ...s, Icon: mod.SiTailwindcss } : s
+          )
+        )
+      })
+      .catch(() => {})
+  }, [])
+
+  const filteredSkills = skillsState.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
   )
   return (
