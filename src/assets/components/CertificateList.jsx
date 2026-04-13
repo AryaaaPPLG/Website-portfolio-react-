@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Download, X, ExternalLink } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Download, X, ExternalLink, Calendar, Building2 } from "lucide-react";
 
 
 const certificates = [
@@ -40,11 +40,16 @@ const certificates = [
 export default function CertificateList() {
   const [selectedPDF, setSelectedPDF] = useState(null);
 
+  const selectedCert = useMemo(() => {
+    if (!selectedPDF) return null;
+    return certificates.find((c) => c.file === selectedPDF) ?? null;
+  }, [selectedPDF]);
+
   return (
     <section id="certificate" className="min-h-screen py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-extrabold text-center text-foreground mb-4 tracking-tight">
-          🎓 Sertifikat<span className="text-primary"> Saya</span>
+          Sertifikat<span className="text-primary"> Saya</span>
         </h1>
         <p className="text-center text-muted-foreground mb-16 text-lg">
           Berikut Adalah Beberapa Sertifikat Saya Yang Saya Kembangkan Mulai Dari Tahun Ke Tahun
@@ -55,21 +60,40 @@ export default function CertificateList() {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="rounded-2xl shadow-xl border border-gray-200 hover:shadow-2xl hover:border-blue-400 transition transform hover:-translate-y-2 cursor-pointer overflow-hidden shadow-lg shadow-sky-600 drop-shadow-md drop-shadow-sky-600"
+              className="group rounded-2xl border border-border bg-card hover:bg-card/95 shadow-sm hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer overflow-hidden"
               onClick={() => setSelectedPDF(cert.file)}
             >
-              {/* Gambar preview */}
-              <img
-                src={cert.preview}
-                alt={cert.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-xl font-semibold text-white mb-1 line-clamp-2">
-                  {cert.title}
-                </h2>
-                <p className="text-gray-400">{cert.issuer}</p>
-                <p className="text-sm text-gray-500 mt-2">{cert.date}</p>
+              {/* Preview */}
+              <div className="relative">
+                <img
+                  src={cert.preview}
+                  alt={cert.title}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <div className="absolute bottom-3 left-3 right-3">
+                  <h2 className="text-base sm:text-lg font-semibold text-white line-clamp-2 drop-shadow">
+                    {cert.title}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="p-4 text-left">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Building2 className="h-4 w-4" />
+                  <span className="line-clamp-1">{cert.issuer}</span>
+                </div>
+                <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                  <Calendar className="h-4 w-4" />
+                  <span>{cert.date}</span>
+                </div>
+
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
+                    Click to preview
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -83,7 +107,7 @@ export default function CertificateList() {
             {/* Header */}
             <div className="flex justify-between items-center bg-gradient-to-r from-blue-600 to-purple-600 p-4">
               <h2 className="text-white font-semibold flex items-center gap-2">
-                <ExternalLink size={18} /> Certificate Preview
+                <ExternalLink size={18} /> {selectedCert?.title ?? "Certificate Preview"}
               </h2>
               <button
                 onClick={() => setSelectedPDF(null)}

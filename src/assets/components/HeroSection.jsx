@@ -21,7 +21,7 @@ export const HeroSection = () => {
   return (
     <section
   id="hero"
-  className="relative min-h-screen flex items-center justify-between px-20"
+  className="relative min-h-screen flex items-center justify-between px-6 md:px-20"
 >
   {/* Orbiting Circles di kiri (setengah lingkaran aja kelihatan) */}
   <div className="absolute translate-x-30 top-5 -translate-y-55 w-[50%] flex justify-end z-15">
@@ -52,7 +52,7 @@ export const HeroSection = () => {
   {/* Konten teks di kiri */}
   <div className="relative z-10 max-w-2xl text-left">
     <SparklesText> 
-      <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-sky-50/80">
+      <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground dark:text-sky-50/80">
         <span className="opacity-0 animate-fade-in text-5xl font-extrabold mb-4">
           Hai, Saya <span> </span> 
         </span>
@@ -63,29 +63,29 @@ export const HeroSection = () => {
         >
            Arya
         </AuroraText> 
-        <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2 text-5xl font-extrabold mb-4">
+        <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2 text-5xl font-extrabold mb-4 text-foreground dark:text-sky-50/90">
           Prana Jaya
         </span>
       </h1>
     </SparklesText>
 
     <p className="text-lg md:text-xl text-muted-foreground mt-6 opacity-0 animate-fade-in-delay-3">
-      Saya Adalah Seorang Front-End Developer Yang Ingin Menjadi Fullstack Developer
+      Saya Adalah Seorang Backend Developer Yang Ingin Menjadi Fullstack Developer
       Dan Ini Adalah Salah Satu Project Terbaik Saya
     </p>
 
     <div className="flex gap-4 pt-4 opacity-0 animate-fade-in-delay-4 ">
       <a
         href="#projects"
-        className="cosmic-button cursor-target bg-sky-600 text-white hover:text-sky-600 hover:bg-white "
+        className="cosmic-button cursor-target bg-sky-600 text-white hover:text-sky-700 hover:bg-white dark:hover:text-sky-600 "
       >
         Lihat Projek Saya
       </a>
     </div>
   </div>
-<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce text-white cursor-target">
+<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce cursor-target">
         <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
-        <ArrowDown className="h-5 w-5 text-foreground" />
+        <ArrowDown className="h-5 w-5 text-muted-foreground" />
       </div>
   {/* Lanyard selalu di kanan */}
   <div className="relative z-10">

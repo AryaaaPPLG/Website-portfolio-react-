@@ -14,11 +14,11 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Front-End Developer & Software Engineer
+              Backend Developer & Software Engineer
             </h3>
 
             <p className="text-muted-foreground ">
-              Saya Adalah Junior Front-end Developer Yang Sebentar Lagi Akan Lulus Dari Jenjang SMK Dan Akan Langsung Bekerja
+              Saya Adalah Senior Backend Developer Yang Sebentar Lagi Akan Lulus Dari Jenjang SMK Dan Akan Langsung Bekerja
             </p>
 
             <p className="text-muted-foreground">
