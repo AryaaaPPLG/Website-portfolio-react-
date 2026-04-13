@@ -1,5 +1,5 @@
 import ProfileCard from "./ProfileCard";
-import img from "../images/aryaa.png"
+import img from "../images/aryaProfile.jpeg"
 import { Download } from "lucide-react";
 
 

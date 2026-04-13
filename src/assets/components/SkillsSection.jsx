@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 import { 
@@ -6,18 +7,16 @@ import {
 } from "react-icons/fa"
 
 const skills = [
-  { name: "HTML", level: 95, category: "frontend", Icon: FaHtml5 },
-  { name: "CSS", level: 95, category: "frontend", Icon: FaCss3Alt },
-  { name: "Javascript", level: 76, category: "frontend", Icon: FaJsSquare },
-  // Use a fallback (FaCss3Alt) until the Si icon is dynamically loaded
-  { name: "Tailwind CSS", level: 95, category: "frontend", Icon: FaCss3Alt },
-  { name: "React", level: 87, category: "frontend", Icon: FaReact },
-  { name: "Bootstrap", level: 90, category: "frontend", Icon: FaBootstrap },
-  { name: "Laravel", level: 65, category: "backend", Icon: FaLaravel },
-  { name: "PHP", level: 65, category: "backend", Icon: FaPhp },
-  { name: "Github", level: 87, category: "tools", Icon: FaGithub },
+  { name: "HTML", level: 95, category: "frontend", Icon: FaHtml5, color: "text-orange-500" },
+  { name: "CSS", level: 95, category: "frontend", Icon: FaCss3Alt, color: "text-blue-500" },
+  { name: "Javascript", level: 76, category: "frontend", Icon: FaJsSquare, color: "text-yellow-400" },
+  { name: "Tailwind CSS", level: 95, category: "frontend", Icon: FaCss3Alt, color: "text-sky-400" },
+  { name: "React", level: 87, category: "frontend", Icon: FaReact, color: "text-cyan-400" },
+  { name: "Bootstrap", level: 90, category: "frontend", Icon: FaBootstrap, color: "text-purple-500" },
+  { name: "Laravel", level: 65, category: "backend", Icon: FaLaravel, color: "text-red-500" },
+  { name: "PHP", level: 65, category: "backend", Icon: FaPhp, color: "text-indigo-400" },
+  { name: "Github", level: 87, category: "tools", Icon: FaGithub, color: "text-white" },
 ]
-
 
 const categories = ["all", "frontend", "backend", "tools"]
 
@@ -40,55 +39,84 @@ export const SkillsSelection = () => {
   const filteredSkills = skillsState.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
   )
-  return (
-      <section id="skills" className="py-24 px-4 relative bg-secondary/30 ">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Skills <span className="text-primary"> Saya </span>
-        </h2>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
-            <button
-              key={key}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize cursor-pointer",
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary"
-              )}
-            >
-              {category}
-            </button>
-          ))}
+  return (
+    <section id="skills" className="py-32 px-4 relative">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl font-extrabold mb-4 tracking-tight">
+            Keahlian <span className="text-primary">Teknis</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Kumpulan teknologi yang saya gunakan untuk membangun solusi digital yang inovatif dan efisien.
+          </p>
+        </motion.div>
+
+        {/* Filter Tabs */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex p-1 bg-secondary/30 backdrop-blur-md rounded-2xl border border-white/5">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={cn(
+                  "px-6 py-2 rounded-xl text-sm font-bold capitalize transition-all duration-300 cursor-target",
+                  activeCategory === category
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="relative group [perspective:1000px] cursor-pointer"
-            >
-              <div className="relative w-full h-44 transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                {/* Front Side */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-500 text-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6 [backface-visibility:hidden]">
-                  <skill.Icon className="w-12 h-12 mb-3" />
-                  <h3 className="font-bold text-lg">{skill.name}</h3>
-                  <span className="text-sm">{skill.level}%</span>
-                </div>
+        <motion.div 
+          layout
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredSkills.map((skill) => (
+              <motion.div
+                key={skill.name}
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative p-8 bg-secondary/20 backdrop-blur-md border border-white/5 rounded-3xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all overflow-hidden h-44">
+                  
+                  {/* Skill Progress Circle Background (Optional visual) */}
+                  <div className="absolute top-[-20px] right-[-20px] text-primary/5 -rotate-12 group-hover:scale-110 transition-transform">
+                    <skill.Icon size={120} />
+                  </div>
 
-                {/* Back Side */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-400 text-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                  <p className="text-sm mb-2">Skill Level</p>
-                  <span className="text-2xl font-bold">{skill.level}%</span>
+                  <skill.Icon className={cn("text-5xl mb-2 transition-all group-hover:scale-110", skill.color)} />
+                  <div className="text-center">
+                    <h3 className="font-bold text-lg">{skill.name}</h3>
+                    <div className="mt-2 w-full bg-white/10 h-1.5 rounded-full overflow-hidden max-w-[80px] mx-auto">
+                       <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        className="h-full bg-primary"
+                       />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   )

@@ -4,7 +4,6 @@ import OrbitingCircles from "./ui/OrbitingCircles"
 import { FaReact, FaHtml5, FaLaravel, FaGithub, FaPhp, FaCss3Alt, FaJsSquare } from "react-icons/fa"
 import AuroraText from "./ui/AuroraText"
 import Lanyard from "./Lanyard"
-import "@dimforge/rapier3d-compat";
 import SparklesText from "./ui/SparklesText"
 
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Download, X } from "lucide-react";
+import { Download, X, ExternalLink } from "lucide-react";
 
 
 const certificates = [
@@ -8,8 +8,8 @@ const certificates = [
     title: "TANTANGAN DAN SOLUSI LOCAL BRAND UNTUK BERSAING DI PASAR DIGITAL",
     issuer: "Kominfo, Siber Kreasi",
     date: "November 2021",
-    file: "./certificate/ANAK AGUNG PUTU ARYA PRANA JAYA.pdf",
-    preview: "./images/cert1.png", // tambahin gambar preview
+    file: "/certificate/ANAK AGUNG PUTU ARYA PRANA JAYA.pdf",
+    preview: "/images/cert1.png",
   },
   {
     id: 2,
@@ -65,10 +65,10 @@ export default function CertificateList() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h2 className="text-xl font-semibold text-white mb-1">
+                <h2 className="text-xl font-semibold text-white mb-1 line-clamp-2">
                   {cert.title}
                 </h2>
-                <p className="text-gray-600">{cert.issuer}</p>
+                <p className="text-gray-400">{cert.issuer}</p>
                 <p className="text-sm text-gray-500 mt-2">{cert.date}</p>
               </div>
             </div>
@@ -78,38 +78,50 @@ export default function CertificateList() {
 
       {/* Modal */}
       {selectedPDF && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 animate-fadeIn">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-5xl w-full relative overflow-hidden">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 animate-in fade-in duration-300">
+          <div className="bg-background rounded-2xl shadow-2xl max-w-5xl w-full relative overflow-hidden border border-border">
             {/* Header */}
             <div className="flex justify-between items-center bg-gradient-to-r from-blue-600 to-purple-600 p-4">
-              <h2 className="text-white font-semibold">Certificate Preview</h2>
+              <h2 className="text-white font-semibold flex items-center gap-2">
+                <ExternalLink size={18} /> Certificate Preview
+              </h2>
               <button
                 onClick={() => setSelectedPDF(null)}
-                className="text-white hover:text-red-300 transition"
+                className="text-white hover:text-red-300 transition-colors p-1"
               >
                 <X size={24} />
               </button>
             </div>
 
-            {/* PDF Viewer pakai react-pdf */}
-            <div className="w-full h-[75vh] overflow-auto flex justify-center bg-gray-100">
-              <Document file={selectedPDF}>
-                <Page pageNumber={1} width={800} />
-              </Document>
+            {/* PDF Viewer using iframe for better compatibility */}
+            <div className="w-full h-[70vh] bg-muted">
+              <iframe
+                src={`${selectedPDF}#toolbar=0`}
+                className="w-full h-full border-none"
+                title="Certificate Viewer"
+              />
             </div>
 
             {/* Footer */}
-            <div className="flex justify-end gap-4 p-4 border-t bg-gray-50">
+            <div className="flex justify-end gap-4 p-4 border-t bg-muted/50">
+              <a
+                href={selectedPDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition-colors"
+              >
+                <ExternalLink size={18} /> Open Full View
+              </a>
               <a
                 href={selectedPDF}
                 download
-                className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition"
+                className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition-colors"
               >
-                <Download size={18} /> Download PDF
+                <Download size={18} /> Download
               </a>
               <button
                 onClick={() => setSelectedPDF(null)}
-                className="bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 transition"
+                className="bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 transition-colors"
               >
                 Close
               </button>
