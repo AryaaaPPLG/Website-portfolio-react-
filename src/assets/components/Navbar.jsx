@@ -66,7 +66,7 @@ const Navbar = () => {
           border: isScrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
         }}
       >
-        <div className="container mx-auto flex items-center justify-between px-6 py-4">
+        <div className="container mx-auto flex items-center justify-between px-4 md:px-6 py-4">
           {/* left */}
           <ul className="hidden md:flex items-center gap-4 pointer-events-auto">
             <NavLink  href="#">Home</NavLink>
@@ -75,12 +75,12 @@ const Navbar = () => {
           </ul>
 
           {/* center */}
-          <a href="#home" className="flex items-center gap-3 text-center mx-auto pointer-events-auto pr-7">
-            <img src={img} alt="Logo" className="h-10 w-10 rounded-4xl" />
-            <div>
-              <h1 className="text-cyan-400 font-moderniz  font-extrabold text-lg">ARYA PRANA JAYA</h1>
+          <a href="#home" className="flex items-center gap-2 md:gap-3 text-center mx-0 md:mx-auto pointer-events-auto">
+            <img src={img} alt="Logo" className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 rounded-full" />
+            <div className="text-left">
+              <h1 className="text-cyan-400 font-moderniz font-extrabold text-xs sm:text-sm md:text-lg leading-none">ARYA PRANA JAYA</h1>
               <p
-                className="text-[13px] text-cyan-400/80 font-semibold tracking-wider"
+                className="text-[8px] sm:text-[10px] md:text-[13px] text-cyan-400/80 font-semibold tracking-wider mt-0.5 sm:mt-1"
                 style={{
                   textShadow:
                     "0.5px 0.5px 0 #00ffdc, -0.5px -0.5px 0 #00ffdc, 0.5px -0.5px 0 #00ffdc, -0.5px 0.5px 0 #00ffdc",
@@ -97,7 +97,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#contact"
-                className="flex items-center gap-0 font-bold text-white hover:text-cyan-300 hover:drop-shadow-[0_0_6px_#00fff7] transition duration-300 mx-9"
+                className="flex items-center gap-0 font-bold text-white hover:text-cyan-300 hover:drop-shadow-[0_0_6px_#00fff7] transition duration-300 mx-4 lg:mx-9"
               >
                 Contact 
               </a>
@@ -107,10 +107,10 @@ const Navbar = () => {
           {/* mobile toggle */}
           <button
             onClick={() => setIsMenuOpen((p) => !p)}
-            className="md:hidden text-cyan-400 text-3xl pointer-events-auto"
+            className="md:hidden text-cyan-400 p-2 pointer-events-auto"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 

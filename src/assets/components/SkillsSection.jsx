@@ -41,30 +41,30 @@ export const SkillsSelection = () => {
   )
 
   return (
-    <section id="skills" className="py-32 px-4 relative">
+    <section id="skills" className="py-16 md:py-32 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-5xl font-extrabold mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Keahlian <span className="text-primary">Teknis</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Kumpulan teknologi yang saya gunakan untuk membangun solusi digital yang inovatif dan efisien.
           </p>
         </motion.div>
 
         {/* Filter Tabs */}
-        <div className="flex justify-center mb-16">
-          <div className="inline-flex p-1 bg-secondary/30 backdrop-blur-md rounded-2xl border border-white/5">
+        <div className="flex justify-center mb-10 md:mb-16">
+          <div className="flex flex-wrap justify-center gap-2 p-1 bg-secondary/30 backdrop-blur-md rounded-2xl border border-white/5">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={cn(
-                  "px-6 py-2 rounded-xl text-sm font-bold capitalize transition-all duration-300 cursor-target",
+                  "px-4 sm:px-6 py-2 rounded-xl text-[10px] sm:text-xs md:text-sm font-bold capitalize transition-all duration-300 cursor-target",
                   activeCategory === category
                     ? "bg-primary text-primary-foreground shadow-lg"
                     : "text-muted-foreground hover:text-foreground"
@@ -79,7 +79,7 @@ export const SkillsSelection = () => {
         {/* Skills Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
         >
           <AnimatePresence mode="popLayout">
             {filteredSkills.map((skill) => (
@@ -89,22 +89,22 @@ export const SkillsSelection = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
                 className="group relative"
               >
-                <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative p-8 bg-secondary/20 backdrop-blur-md border border-white/5 rounded-3xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all overflow-hidden h-44">
+                <div className="absolute inset-0 bg-primary/20 rounded-2xl md:rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative p-5 md:p-8 bg-secondary/20 backdrop-blur-md border border-white/5 rounded-2xl md:rounded-3xl flex flex-col items-center justify-center gap-3 md:gap-4 hover:border-primary/50 transition-all overflow-hidden h-36 sm:h-40 md:h-44">
                   
                   {/* Skill Progress Circle Background (Optional visual) */}
                   <div className="absolute top-[-20px] right-[-20px] text-primary/5 -rotate-12 group-hover:scale-110 transition-transform">
                     <skill.Icon size={120} />
                   </div>
 
-                  <skill.Icon className={cn("text-5xl mb-2 transition-all group-hover:scale-110", skill.color)} />
-                  <div className="text-center">
-                    <h3 className="font-bold text-lg">{skill.name}</h3>
-                    <div className="mt-2 w-full bg-white/10 h-1.5 rounded-full overflow-hidden max-w-[80px] mx-auto">
+                  <skill.Icon className={cn("text-3xl sm:text-4xl md:text-5xl mb-1 md:mb-2 transition-all group-hover:scale-110", skill.color)} />
+                  <div className="text-center w-full px-2">
+                    <h3 className="font-bold text-sm sm:text-base md:text-lg truncate">{skill.name}</h3>
+                    <div className="mt-2 w-full bg-white/10 h-1 md:h-1.5 rounded-full overflow-hidden max-w-[60px] sm:max-w-[80px] mx-auto">
                        <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
