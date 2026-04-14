@@ -18,11 +18,13 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground ">
-              Saya Adalah Senior Backend Developer Yang Sebentar Lagi Akan Lulus Dari Jenjang SMK Dan Akan Langsung Bekerja
-            </p>
+              "Halo, saya Arya. Perjalanan saya di dunia teknologi dimulai dari rasa penasaran bagaimana sebuah sistem bekerja. Sebagai siswa Rekayasa Perangkat Lunak, saya tidak hanya menulis baris kode, tetapi saya membangun solusi.
+
+Aktif sebagai Lead Backend di kolektif ThreeDevs, saya terbiasa mengelola alur data yang kompleks dan memastikan setiap sistem berjalan efisien. Dari mengurus administrasi digital sekolah hingga berkompetisi di ajang LKS, saya selalu mengedepankan logika yang kuat dan performance yang stabil. Saya percaya bahwa teknologi terbaik adalah teknologi yang bisa mempermudah hidup orang lain."
+    </p>
 
             <p className="text-muted-foreground">
-              Kenapa Pilih Saya Karena Saya Sangat Tertarik Dengan Teknologi, Saya Sering Melakukan Prompt Untuk Mengetahui Sesuatu Mau itu Code Atau Pun Pengetahuan, Dengan ini Saya Sangat Yakin Dengan Kebolehan Saya Untuk Membuat Sebuah Mega Project Disebuah Perusahaan Atau Pun UMKM, Atau Berkontribusi Ataupun Kolaborasi Dengan Siapapun
+              Kenapa Pilih Saya?, Karena Saya Sangat Tertarik Dengan Teknologi, Saya Sering Melakukan Prompt Untuk Mengetahui Sesuatu Mau itu Code Atau Pun Pengetahuan, Dengan ini Saya Sangat Yakin Dengan Kebolehan Saya Untuk Membuat Sebuah Mega Project Disebuah Perusahaan Atau Pun UMKM, Atau Berkontribusi Ataupun Kolaborasi Dengan Siapapun
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -48,7 +50,7 @@ export const AboutSection = () => {
                 status="Write A Code"
                 contactText="Contact Me"
                 avatarUrl={img}
-                grainUrl="https://i.pinimg.com/736x/9b/f3/fa/9bf3fac7c574c0425c738484484eb9dd.jpg"
+                grainUrl="https://i.pinimg.com/736x/cc/7c/d0/cc7cd03e7b05a678a307601d4a1e3024.jpg"
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={true}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import  img  from "../images/logo.png";
 
 
 // Clip-path zigzag bawah (dipakai untuk nav background)
@@ -75,7 +76,7 @@ const Navbar = () => {
 
           {/* center */}
           <a href="#home" className="flex items-center gap-3 text-center mx-auto pointer-events-auto pr-7">
-            <img src="./react.svg" alt="Logo" className="h-10 w-10" />
+            <img src={img} alt="Logo" className="h-10 w-10 rounded-4xl" />
             <div>
               <h1 className="text-cyan-400 font-moderniz  font-extrabold text-lg">ARYA PRANA JAYA</h1>
               <p

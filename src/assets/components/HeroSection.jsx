@@ -70,8 +70,7 @@ export const HeroSection = () => {
     </SparklesText>
 
     <p className="text-lg md:text-xl text-muted-foreground mt-6 opacity-0 animate-fade-in-delay-3">
-      Saya Adalah Seorang Backend Developer Yang Ingin Menjadi Fullstack Developer
-      Dan Ini Adalah Salah Satu Project Terbaik Saya
+      "Menggabungkan kreativitas Frontend dengan ketangguhan Backend untuk menciptakan pengalaman digital terbaik."
     </p>
 
     <div className="flex gap-4 pt-4 opacity-0 animate-fade-in-delay-4 ">
@@ -88,7 +87,7 @@ export const HeroSection = () => {
         <ArrowDown className="h-5 w-5 text-muted-foreground" />
       </div>
   {/* Lanyard selalu di kanan */}
-  <div className="relative z-10">
+  <div className="relative z-10 cursor-target">
     <Lanyard 
     position={[0, 0, 20]}
     gravity={	

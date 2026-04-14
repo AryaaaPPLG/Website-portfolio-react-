@@ -15,14 +15,14 @@ export const ContactSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl font-extrabold mb-4 tracking-tight">
-            Hubungi <span className="text-primary">Saya</span>
+            Mari <span className="text-primary">Berkolaborasi</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Tertarik untuk berkolaborasi atau sekadar ingin bertanya? Silakan hubungi saya kapan saja!
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center cursor-target">
           {/* Info Card */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -68,7 +68,7 @@ export const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="p-8 bg-gradient-to-br from-primary/20 via-background to-secondary/10 rounded-3xl border border-primary/20 relative shadow-2xl"
           >
-            <div className="absolute top-0 right-0 p-4 opacity-10">
+            <div className="absolute top-0 right-0 p-4 opacity-10 cursor-target">
                 <Send size={120} className="rotate-12" />
             </div>
             
@@ -81,10 +81,10 @@ export const ContactSection = () => {
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-3 bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20 cursor-target"
+              className="w-full flex items-center justify-center gap-3 bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-lg p-5 shadow-primary/20 cursor-target"
             >
               <MessageSquare size={24} />
-              Kirim Pesan Sekarang
+              Ayo Bangun Sesuatu yang Hebat 
             </a>
           </motion.div>
         </div>
