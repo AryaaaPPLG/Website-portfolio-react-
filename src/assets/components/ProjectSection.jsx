@@ -34,6 +34,17 @@ const projects = [
     githubUrl: "https://github.com/Jasa-Pembuatan-Website-ThreeDevs/Website-SMPN-4-Genteng.git",
     color: "from-purple-600/20 to-pink-600/20",
     featured: false
+  },
+  {
+    id: 4,
+    title: "Website Sekolah Sepak Bola",
+    description: "Website Sekolah Sepak Bola Dengan Fitur Yang Mempermudah Pendaftaran Siswa Dan Informasi Untuk Sekolah",
+    image: "/projects/project4.png",
+    tags: ["Laravel", "Tailwind", "React"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/Dannys02/PROJEK-SSB.git",
+    color: "from-blue-600/20 to-pink-600/20",
+    featured: false
   }
 ];
 
