@@ -72,11 +72,9 @@ export const Home = () => {
 <Navbar />
 <ThemeToggle />
 {/* Background Effects */}
-{enableEffects && (
-  <Suspense fallback={null}>
-    <StarBackground />
-  </Suspense>
-)}
+<Suspense fallback={null}>
+  <StarBackground />
+</Suspense>
 
 {/* Main Content */}
 <main className="flex flex-col items-center justify-center min-h-screen relative">

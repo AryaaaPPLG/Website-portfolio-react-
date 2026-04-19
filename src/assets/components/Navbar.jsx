@@ -40,7 +40,7 @@ const Navbar = () => {
           className="absolute left-0 right-0"
           style={{
             top: "0",
-            height: "81px",
+            height: "65px",
             WebkitClipPath: CLIP_PATH,
             clipPath: CLIP_PATH,
             background: "linear-gradient(90deg, #00f7e8, #00d1b8, #00f7e8)",
@@ -74,13 +74,16 @@ const Navbar = () => {
             <NavLink href="#certificate">Certificate</NavLink>
           </ul>
 
-          {/* center */}
-          <a href="#home" className="flex items-center gap-2 md:gap-3 text-center mx-0 md:mx-auto pointer-events-auto">
-            <img src={img} alt="Logo" className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 rounded-full" />
+          {/* center (Logo) */}
+          <a href="#home" className="flex items-center gap-2 md:gap-3 text-center mx-auto md:mx-auto pointer-events-auto group">
+            <div className="relative">
+               <div className="absolute inset-0 bg-cyan-400/50 rounded-full blur-md group-hover:blur-lg transition-all duration-300"></div>
+               <img src={img} alt="Logo" className="relative h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 rounded-full border border-cyan-400/30" />
+            </div>
             <div className="text-left">
-              <h1 className="text-cyan-400 font-moderniz font-extrabold text-xs sm:text-sm md:text-lg leading-none">ARYA PRANA JAYA</h1>
+              <h1 className="text-cyan-400 font-moderniz font-extrabold text-[10px] sm:text-sm md:text-lg leading-none drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">ARYA PRANA JAYA</h1>
               <p
-                className="text-[8px] sm:text-[10px] md:text-[13px] text-cyan-400/80 font-semibold tracking-wider mt-0.5 sm:mt-1"
+                className="text-[7px] sm:text-[10px] md:text-[13px] text-cyan-400/80 font-semibold tracking-wider mt-0.5 sm:mt-1"
                 style={{
                   textShadow:
                     "0.5px 0.5px 0 #00ffdc, -0.5px -0.5px 0 #00ffdc, 0.5px -0.5px 0 #00ffdc, -0.5px 0.5px 0 #00ffdc",
@@ -107,7 +110,7 @@ const Navbar = () => {
           {/* mobile toggle */}
           <button
             onClick={() => setIsMenuOpen((p) => !p)}
-            className="md:hidden text-cyan-400 p-2 pointer-events-auto"
+            className="md:hidden text-cyan-400 p-2 pointer-events-auto absolute right-4"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}

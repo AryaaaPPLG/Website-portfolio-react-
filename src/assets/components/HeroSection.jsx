@@ -25,29 +25,29 @@ export const HeroSection = () => {
   id="hero"
   className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between px-4 sm:px-6 md:px-20 py-20 md:py-0 overflow-hidden"
 >
-  {/* Orbiting Circles di kiri (setengah lingkaran aja kelihatan) */}
-  <div className="absolute left-[-20%] md:left-0 translate-x-0 md:translate-x-30 top-0 md:top-5 -translate-y-10 md:-translate-y-55 w-full md:w-[50%] flex justify-center md:justify-end z-0 opacity-30 md:opacity-100 pointer-events-none">
+  {/* Orbiting Circles di kiri (setengah lingkaran aja kelihatan di desktop, full di mobile) */}
+  <div className="absolute left-0 md:left-0 translate-x-0 md:translate-x-30 top-[-5%] md:top-5 -translate-y-0 md:-translate-y-55 w-full md:w-[50%] flex justify-center md:justify-end z-0 opacity-80 md:opacity-100 pointer-events-none">
     <OrbitingCircles
-      radius={isMobile ? 120 : 200}
-      iconSize={isMobile ? 25 : 40}
+      radius={isMobile ? 140 : 200}
+      iconSize={isMobile ? 28 : 40}
       speed={2}
-      className="text-sky-600 drop-shadow-2xl drop-shadow-sky-600"
+      className="text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]"
     >
-      <FaReact className="w-8 h-8 md:w-20 md:h-20"/>
-      <FaHtml5 className="w-8 h-8 md:w-20 md:h-20"/>
+      <FaReact className="w-8 h-8 md:w-20 md:h-20 text-cyan-400"/>
+      <FaHtml5 className="w-8 h-8 md:w-20 md:h-20 text-orange-500"/>
       {siIcons.SiTailwindcss ? (
-        <siIcons.SiTailwindcss className="w-8 h-8 md:w-20 md:h-20" />
+        <siIcons.SiTailwindcss className="w-8 h-8 md:w-20 md:h-20 text-sky-400" />
       ) : (
-        <FaCss3Alt className="w-8 h-8 md:w-20 md:h-20" />
+        <FaCss3Alt className="w-8 h-8 md:w-20 md:h-20 text-blue-500" />
       )}
-      <FaLaravel className="w-8 h-8 md:w-20 md:h-20"/>
-      <FaGithub className="w-8 h-8 md:w-20 md:h-20"/>
+      <FaLaravel className="w-8 h-8 md:w-20 md:h-20 text-red-500"/>
+      <FaGithub className="w-8 h-8 md:w-20 md:h-20 text-white"/>
       {siIcons.SiTypescript ? (
-        <siIcons.SiTypescript className="w-8 h-8 md:w-20 md:h-20" />
+        <siIcons.SiTypescript className="w-8 h-8 md:w-20 md:h-20 text-blue-600" />
       ) : (
-        <FaJsSquare className="w-8 h-8 md:w-20 md:h-20" />
+        <FaJsSquare className="w-8 h-8 md:w-20 md:h-20 text-yellow-400" />
       )}
-      <FaPhp className="w-8 h-8 md:w-20 md:h-20"/>
+      <FaPhp className="w-8 h-8 md:w-20 md:h-20 text-indigo-400"/>
     </OrbitingCircles>
   </div>
 
