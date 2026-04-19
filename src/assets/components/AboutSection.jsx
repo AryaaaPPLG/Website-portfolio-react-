@@ -11,29 +11,9 @@ export const AboutSection = () => {
           About <span className="text-primary"> Me </span>
         </h2>
 
-        <div className="flex flex-col items-center gap-10 md:gap-16">
-          {/* Profile Card at Top or Center */}
-          <div className="flex justify-center w-full">
-            <div className="w-full max-w-[320px] sm:max-w-md duration-500 ease-in-out card-hover">
-              <ProfileCard
-                name="Arya Prana Jaya"
-                title="Software Engineer"
-                handle="Arya"
-                status="Write A Code"
-                contactText="Contact Me"
-                avatarUrl={img}
-                grainUrl="https://i.pinimg.com/736x/cc/7c/d0/cc7cd03e7b05a678a307601d4a1e3024.jpg"
-                showUserInfo={true}
-                enableTilt={true}
-                enableMobileTilt={true}
-                onContactClick={() => window.location.href="https://wa.me/+62895368757054"}
-                className="cursor-target"
-              /> 
-            </div>
-          </div>
-
-          {/* Text Content Centered */}
-          <div className="space-y-6 text-center max-w-3xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
+          {/* Text Content - Left on Desktop */}
+          <div className="space-y-6 text-center md:text-left order-2 md:order-1">
             <h3 className="text-xl sm:text-2xl font-semibold">
               Backend Developer & Software Engineer
             </h3>
@@ -52,7 +32,7 @@ export const AboutSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
               <a href="#contact" className="cosmic-button cursor-target bg-sky-600 text-white hover:bg-white hover:text-sky-600 w-full sm:w-auto text-center py-3 px-8">
                 Hubungi Saya
               </a>
@@ -62,6 +42,26 @@ export const AboutSection = () => {
               >
                 Download CV <Download size={16}/>
               </a>
+            </div>
+          </div>
+
+          {/* Profile Card - Right on Desktop */}
+          <div className="order-1 md:order-2 flex justify-center">
+            <div className="w-full max-w-[320px] sm:max-w-md duration-500 ease-in-out card-hover">
+              <ProfileCard
+                name="Arya Prana Jaya"
+                title="Software Engineer"
+                handle="Arya"
+                status="Write A Code"
+                contactText="Contact Me"
+                avatarUrl={img}
+                grainUrl="https://i.pinimg.com/736x/cc/7c/d0/cc7cd03e7b05a678a307601d4a1e3024.jpg"
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={true}
+                onContactClick={() => window.location.href="https://wa.me/+62895368757054"}
+                className="cursor-target"
+              /> 
             </div>
           </div>
         </div>

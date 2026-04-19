@@ -13,11 +13,20 @@ const CLIP_PATH =
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 0);
+    const onResize = () => setIsMobile(window.innerWidth < 768);
+    
+    onResize(); // Initial check
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onResize);
+    
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
   const NavLink = ({ href, children }) => (
@@ -40,7 +49,7 @@ const Navbar = () => {
           className="absolute left-0 right-0"
           style={{
             top: "0",
-            height: "65px",
+            height: isMobile ? "65px" : "81px",
             WebkitClipPath: CLIP_PATH,
             clipPath: CLIP_PATH,
             background: "linear-gradient(90deg, #00f7e8, #00d1b8, #00f7e8)",

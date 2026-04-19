@@ -13,6 +13,7 @@ export const StarBackground = () => {
 
         const handleResize = () => {
             generateStars();
+            generateMeteors(); // Re-generate on resize to adjust counts
         };
 
         window.addEventListener('resize', handleResize)
@@ -43,7 +44,8 @@ export const StarBackground = () => {
 
 
     const generateMeteors = () => {
-        const numberMeteors = 4;
+        const isMobile = window.innerWidth < 768;
+        const numberMeteors = isMobile ? 8 : 4; // More meteors on mobile for variety
         const newMeteors = [];
 
         for (let i = 0; i < numberMeteors; i++) {
@@ -51,9 +53,10 @@ export const StarBackground = () => {
                 id: i,
                 size: Math.random() * 2 + 1,
                 x: Math.random() * 100,
-                y: Math.random() * 20,
-                delay: Math.random() * 5,
-                animationDuration: Math.random() * 3 + 3,
+                // On mobile, meteors can start from higher up or anywhere in the y-axis
+                y: isMobile ? Math.random() * 100 : Math.random() * 40, 
+                delay: Math.random() * 10, // More spread out delays
+                animationDuration: Math.random() * 3 + 2,
             });
         }
 
@@ -82,7 +85,7 @@ export const StarBackground = () => {
                     style={{
                         position: "absolute",
                         width: meteor.size * 50 + "px", // panjang garis meteor
-                        height: meteor.size * 3 + "px",
+                        height: meteor.size * 2 + "px",
                         left: meteor.x + "%",
                         top: meteor.y + "%",
                         background: "linear-gradient(90deg, white, transparent)",
