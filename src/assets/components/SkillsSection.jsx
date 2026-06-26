@@ -97,20 +97,9 @@ export const SkillsSelection = () => {
                 <div className="relative p-5 md:p-8 bg-secondary/20 backdrop-blur-md border border-white/5 rounded-2xl md:rounded-3xl flex flex-col items-center justify-center gap-3 md:gap-4 hover:border-primary/50 transition-all overflow-hidden h-36 sm:h-40 md:h-44">
                   
                   {/* Skill Progress Circle Background (Optional visual) */}
-                  <div className="absolute top-[-20px] right-[-20px] text-primary/5 -rotate-12 group-hover:scale-110 transition-transform">
-                    <skill.Icon size={120} />
-                  </div>
-
                   <skill.Icon className={cn("text-3xl sm:text-4xl md:text-5xl mb-1 md:mb-2 transition-all group-hover:scale-110", skill.color)} />
                   <div className="text-center w-full px-2">
                     <h3 className="font-bold text-sm sm:text-base md:text-lg truncate">{skill.name}</h3>
-                    <div className="mt-2 w-full bg-white/10 h-1 md:h-1.5 rounded-full overflow-hidden max-w-[60px] sm:max-w-[80px] mx-auto">
-                       <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        className="h-full bg-primary"
-                       />
-                    </div>
                   </div>
                 </div>
               </motion.div>

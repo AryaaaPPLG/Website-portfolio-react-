@@ -91,10 +91,8 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
         }
       }
     };
-
     window.addEventListener('scroll', scrollHandler, { passive: true });
 
-    window.addEventListener('mousemove', moveHandler);
     const mouseDownHandler = () => {
       if (!dotRef.current) return;
       gsap.to(dotRef.current, { scale: 0.7, duration: 0.3 });
