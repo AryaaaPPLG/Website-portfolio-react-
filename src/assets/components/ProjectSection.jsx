@@ -45,6 +45,33 @@ const projects = [
     githubUrl: "https://github.com/Dannys02/PROJEK-SSB.git",
     color: "from-blue-600/20 to-pink-600/20",
     featured: false
+  },
+  {
+    id: 5,
+    title: "OmniPos - Multi Tenant System",
+    description: "OmniPos adalah sistem multi-tenant yang memungkinkan bisnis untuk mengelola berbagai lokasi dan cabang dengan efisiensi tinggi.",
+    image: "/projects/project5.png",
+    tags: ["Next.js", "TailwindCSS", "Prisma ORM"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/AryaaaPPLG/Multi-Tenant-OmniPos.git"
+  },
+  {
+    id: 6,
+    title: "OmniCatalog - Digital Product With Whatsapp Integration",
+    description: "OmniCatalog adalah platform katalog digital yang memungkinkan bisnis untuk menampilkan produk mereka secara online dengan integrasi WhatsApp untuk komunikasi langsung.",
+    image: "/projects/project6.png",
+    tags: ["Next.js", "TailwindCSS", "Prisma ORM"],
+    demoUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 7,
+    title: "SecondBrain - A Digital Noting App",
+    description: "SecondBrain adalah aplikasi pencatatan digital yang dirancang untuk membantu pengguna mengatur ide, catatan, dan informasi penting mereka dengan cara yang efisien dan mudah diakses.",
+    image: "/projects/project7.png",
+    tags: ["Next.js", "TailwindCSS", "Prisma ORM"],
+    demoUrl: "https://second-brain-for-your-creativity.vercel.app/",
+    githubUrl: "https://github.com/AryaaaPPLG/Second-Brain---For-your-creativity.git"
   }
 ];
 

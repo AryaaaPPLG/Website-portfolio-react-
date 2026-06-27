@@ -16,6 +16,7 @@ const skills = [
   { name: "Laravel", level: 65, category: "backend", Icon: FaLaravel, color: "text-red-500" },
   { name: "PHP", level: 65, category: "backend", Icon: FaPhp, color: "text-indigo-400" },
   { name: "Github", level: 87, category: "tools", Icon: FaGithub, color: "text-white" },
+  { name: "Next.js", level: 80, category: "frontend", Icon: FaReact, color: "text-cyan-400" }
 ]
 
 const categories = ["all", "frontend", "backend", "tools"]
