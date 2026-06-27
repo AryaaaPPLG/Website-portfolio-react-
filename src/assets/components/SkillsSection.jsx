@@ -16,7 +16,7 @@ const skills = [
   { name: "Laravel", level: 65, category: "backend", Icon: FaLaravel, color: "text-red-500" },
   { name: "PHP", level: 65, category: "backend", Icon: FaPhp, color: "text-indigo-400" },
   { name: "Github", level: 87, category: "tools", Icon: FaGithub, color: "text-white" },
-  { name: "Next.js", level: 80, category: "frontend", Icon: FaReact, color: "text-cyan-400" }
+  { name: "Next.js", level: 80, category: "frontend", Icon: FaReact, color: "text-white" }
 ]
 
 const categories = ["all", "frontend", "backend", "tools"]
@@ -29,9 +29,15 @@ export const SkillsSelection = () => {
     import('react-icons/si')
       .then((mod) => {
         setSkillsState((prev) =>
-          prev.map((s) =>
-            s.name === 'Tailwind CSS' ? { ...s, Icon: mod.SiTailwindcss } : s
-          )
+          prev.map((s) => {
+            if (s.name === 'Tailwind CSS') {
+              return { ...s, Icon: mod.SiTailwindcss }
+            }
+            if (s.name === 'Next.js') {
+              return { ...s, Icon: mod.SiNextdotjs }
+            }
+            return s
+          })
         )
       })
       .catch(() => {})
