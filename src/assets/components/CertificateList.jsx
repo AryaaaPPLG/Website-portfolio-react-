@@ -36,6 +36,14 @@ const certificates = [
     file: "/certificate/sertifikat-hummatech.pdf",
     preview: "/images/cert4.png",
   },
+  {
+    id: 5,
+    title: "Juara 1 LKS Bidang Web Technologies Tingkat Kabupaten Banyuwangi",
+    issuer: "LKS SMK Tingkat Kabupaten Banyuwangi",
+    date: "15 Mei 2026",
+    file: "#",
+    preview: "/images/sertifikatLKS.png"
+  }
 ];
 
 export default function CertificateList() {
